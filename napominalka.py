@@ -10,7 +10,8 @@ import time
 def set_remind():
     # время напоминания
     global t
-    rem = sd.askstring('Время напоминания','Введите время напоминания в формате чч:мм')
+    rem = sd.askstring('Время напоминания',
+                       'Введите время напоминания в формате чч:мм')
     if rem:
         try:
             hour = int(rem.split(':')[0])
@@ -19,7 +20,7 @@ def set_remind():
             #print(hour, minute, now)
             dt = now.replace(hour = hour, minute = minute, second=0)
             #print(dt)
-
+            # формат понятный пайтону.
             t=dt.timestamp()
             label.config(text = f"Напоминание установлено на {hour:02} : {minute:02}")
         except ValueError:
@@ -31,7 +32,7 @@ def check():
     if t:
         now = time.time()
         if now >= t:
-            #play_snd()
+            play_snd()
             t = None
     # рекурсия - сама себя вызывает
     window.after(10000,check)

@@ -40,7 +40,7 @@ def play_snd():
     global music_plaing
     music_plaing = True
     pygame.mixer.init()
-    pygame.mixer.music.load('Michael Jackson - The Way You Make Me Feel.mp3')
+    pygame.mixer.music.load('rem_music.mp3')
     pygame.mixer.music.play()
 
 

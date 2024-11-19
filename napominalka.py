@@ -36,6 +36,11 @@ def check():
     # рекурсия - сама себя вызывает
     window.after(10000,check)
 
+def play_snd():
+    pygame.mixer.init()
+    pygame.mixer.music.load('rem.mp3')
+    pygame.mixer.music.play()
+
 
 #переменные глобальные
 t = None

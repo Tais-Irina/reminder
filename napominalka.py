@@ -16,12 +16,12 @@ def set_remind():
             hour = int(rem.split(':')[0])
             minute = int(rem.split(':')[1])
             now = datetime.datetime.now()
-            #print(hour, minute, now)
             dt = now.replace(hour = hour, minute = minute, second=0)
-            #print(dt)
             # формат понятный пайтону.
             t=dt.timestamp()
-            label.config(text = f"Напоминание установлено на {hour:02} : {minute:02}")
+            text = sd.askstring('Текст напоминания',
+                                'Введите текст напоминания')
+            label.config(text = f"Напоминание {hour:02} : {minute:02} о {text}")
         except ValueError:
             mb.showerror("Ошибка", "Неправильный формат времени")
 

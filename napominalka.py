@@ -41,7 +41,7 @@ def check():
             win_napom = Toplevel(window)
             win_napom.title("Напоминание")
             win_napom.attributes("-topmost",True)
-            win_napom.geometry("300x100")
+            win_napom.geometry("350x150")
             Label(win_napom, text = f'{t_napominanie} {napominanie}',
                   font = ('Georgia', 20, "bold")).pack(padx=10,pady=10)
             Button(win_napom, text="Закрыть напоминание",
@@ -63,7 +63,6 @@ def stop_music():
         pygame.mixer.music.stop()
         music_plaing = False
         label.config(text = 'Установить новое напоминание')
-        window.de
 
 
 #переменные глобальные
@@ -73,7 +72,7 @@ music_plaing = False
 
 window = Tk()
 window.title("Reminder")
-window.geometry("550x170")
+window.geometry("550x200")
 #window.attributes("-topmost",True)
 label = Label(text = 'Установите напоминание', font = ('Georgia', 15, "bold"))
 label.pack(padx=20,pady = 20)

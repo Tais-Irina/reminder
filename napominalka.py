@@ -37,7 +37,15 @@ def check():
         if now >= t:
             play_snd()
             t_napominanie = datetime.datetime.fromtimestamp(t).strftime("%H:%M")
-            mb.showinfo('Напоминание',f'{t_napominanie} {napominanie} ')
+            #mb.showinfo('Напоминание',f'{t_napominanie} {napominanie} ')
+            win_napom = Toplevel(window)
+            win_napom.title("Напоминание")
+            win_napom.attributes("-topmost",True)
+            win_napom.geometry("300x100")
+            Label(win_napom, text = f'{t_napominanie} {napominanie}',
+                  font = ('Georgia', 20, "bold")).pack(padx=10,pady=10)
+            Button(win_napom, text="Закрыть напоминание",
+                   command=lambda: win_napom.destroy()).pack(padx=15,pady=15)
             t = None
     # рекурсия - сама себя вызывает
     window.after(10000,check)
@@ -49,13 +57,13 @@ def play_snd():
     pygame.mixer.music.load('rem_music.mp3')
     pygame.mixer.music.play()
 
-
 def stop_music():
     global music_plaing
     if music_plaing:
         pygame.mixer.music.stop()
         music_plaing = False
         label.config(text = 'Установить новое напоминание')
+        window.de
 
 
 #переменные глобальные
@@ -66,7 +74,7 @@ music_plaing = False
 window = Tk()
 window.title("Reminder")
 window.geometry("550x170")
-window.attributes("-topmost",True)
+#window.attributes("-topmost",True)
 label = Label(text = 'Установите напоминание', font = ('Georgia', 15, "bold"))
 label.pack(padx=20,pady = 20)
 
